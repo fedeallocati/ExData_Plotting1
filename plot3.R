@@ -8,6 +8,8 @@ plot3 <- function()
     
     data$DateTime <- strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%S")
     
+    Sys.setlocale("LC_TIME", "English")
+    
     png(filename = "plot3.png", width = 480, height = 480, units = "px")
     plot(data$DateTime, data$Sub_metering_1, type="l", col="black", xlab="", ylab="Energy sub metering")
     lines(data$DateTime, data$Sub_metering_2, type="l", col="red")
